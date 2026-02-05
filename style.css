@@ -1,0 +1,389 @@
+:root {
+  --cp-bg: #F6F2EA;
+  --cp-surface: #FFFFFF;
+  --cp-text: #1B1E24;
+  --cp-muted: #5B6472;
+  --cp-border: #D8D1C6;
+  --cp-primary: #1F6F5B;
+  --cp-secondary: #2B3A67;
+  --cp-accent: #D98E2B;
+  --cp-radius: 14px;
+  --cp-shadow: 0 10px 30px rgba(27, 30, 36, 0.10);
+  --cp-max: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  color: var(--cp-text);
+  background-color: var(--cp-bg);
+  margin: 0;
+  padding: 0;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+.page-grid {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background-color: var(--cp-surface);
+  border-bottom: 1px solid var(--cp-border);
+  box-shadow: var(--cp-shadow);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--cp-max);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.nav-brand h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--cp-primary);
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--cp-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--cp-primary);
+}
+
+.nav-links a:focus-visible {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+main {
+  grid-area: main;
+  max-width: var(--cp-max);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.breadcrumbs {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--cp-muted);
+}
+
+.breadcrumbs a {
+  color: var(--cp-primary);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+article {
+  background-color: var(--cp-surface);
+  border-radius: var(--cp-radius);
+  padding: 3rem;
+  box-shadow: var(--cp-shadow);
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: var(--cp-primary);
+  max-width: 65ch;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.3;
+  margin: 3rem 0 1.5rem 0;
+  color: var(--cp-secondary);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  line-height: 1.4;
+  margin: 2rem 0 1rem 0;
+  color: var(--cp-text);
+}
+
+p {
+  max-width: 70ch;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--cp-primary);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--cp-accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+a[rel="external"]::after {
+  content: " ↗";
+  font-size: 0.8em;
+  color: var(--cp-muted);
+}
+
+ul, ol {
+  max-width: 65ch;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+blockquote {
+  border-left: 4px solid var(--cp-accent);
+  background-color: var(--cp-bg);
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-radius: 0 var(--cp-radius) var(--cp-radius) 0;
+  font-style: italic;
+  font-size: 1.1em;
+  max-width: 60ch;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background-color: var(--cp-surface);
+  border-radius: var(--cp-radius);
+  overflow: hidden;
+  box-shadow: var(--cp-shadow);
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--cp-secondary);
+  text-align: left;
+  font-size: 1.1em;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cp-border);
+}
+
+th {
+  background-color: var(--cp-primary);
+  color: var(--cp-surface);
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--cp-bg);
+}
+
+tbody tr:hover {
+  background-color: rgba(31, 111, 91, 0.05);
+}
+
+details {
+  margin-bottom: 1rem;
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  overflow: hidden;
+}
+
+details[open] {
+  border-color: var(--cp-accent);
+}
+
+summary {
+  padding: 1.5rem;
+  background-color: var(--cp-surface);
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--cp-secondary);
+  transition: background-color 0.2s ease;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "▶";
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+summary:hover {
+  background-color: var(--cp-bg);
+}
+
+summary:focus-visible {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: -2px;
+}
+
+.faq-answer {
+  padding: 1.5rem;
+  background-color: var(--cp-bg);
+  border-top: 1px solid var(--cp-border);
+}
+
+.faq-answer p {
+  margin-bottom: 1rem;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+footer {
+  grid-area: footer;
+  background-color: var(--cp-secondary);
+  color: var(--cp-surface);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .page-grid {
+    grid-template-areas:
+      "header header"
+      "main aside"
+      "footer footer";
+    grid-template-columns: 1fr 300px;
+  }
+  
+  nav {
+    padding: 1.5rem 2rem;
+  }
+  
+  .nav-links {
+    gap: 3rem;
+  }
+  
+  main {
+    padding: 3rem 2rem;
+  }
+  
+  article {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-grid {
+    grid-template-areas:
+      "header header header"
+      "aside main sidebar"
+      "footer footer footer";
+    grid-template-columns: 250px 1fr 250px;
+  }
+  
+  table {
+    position: relative;
+  }
+  
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+  
+  article {
+    padding: 2rem 1.5rem;
+  }
+  
+  table {
+    font-size: 0.9rem;
+  }
+  
+  th, td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+.external-resources {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cp-border);
+}
+
+.faq-table {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cp-border);
+}
